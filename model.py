@@ -13,8 +13,8 @@ class Word:
 
     def __str__(self):
         str_meanings = '; '.join(self.meanings)
-        str_final = f"\nPAROLA: {self.word} \nM: {str_meanings}"
-        str_final += f"\nNOTE: {self.notes}" if self.notes else ""
+        str_final = f"\nWord: {self.word} \nMeaning: {str_meanings}"
+        str_final += f"\nNote: {self.notes}" if self.notes else ""
         str_final += f"\nPAV: {self.pav}" if self.pav else ""
         return str_final 
 
@@ -104,5 +104,14 @@ class Dictionary:
         random_date = random.choice(self.get_all_dates())
         random_word = random.choice(self.dictionary[random_date])
         return (random_date, random_word)
-
     
+    def get_last_n_dates_words(self, n:int) -> list[Word]:
+        all_dates = self.get_all_dates()
+        all_dates.sort(reverse=True)
+        result = []
+        for date in all_dates[:n]:
+            result += self.get_date_words(date)
+            
+        return result
+
+        
