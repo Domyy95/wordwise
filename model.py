@@ -76,9 +76,16 @@ class Dictionary:
         new_word = Word(word_name, meanings, notes, pav)
         self._add_word(date, new_word)
 
-    def remove_word(self, date:str, word:Word):
+    def remove_word(self, date:str, word:str):
+        word = word.lower()
         if date in self.dictionary:
-            self.dictionary[date].remove(word)
+            for i, word_d in enumerate(self.dictionary[date]):
+                if word_d.word.lower() == word:
+                    del self.dictionary[date][i]
+                    break
+        
+        else:
+            print("Date not found")
         
     def update_word(self, date:str, word:Word):
         if date in self.dictionary:
