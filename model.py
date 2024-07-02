@@ -107,10 +107,10 @@ class Dictionary:
     def get_all_dates(self) -> list[str]:
         return list(self.dictionary.keys())
     
-    def get_random_word(self) -> list[Word]:
+    def get_random_word(self) -> Tuple[str, Word]:
         random_date = random.choice(self.get_all_dates())
         random_word = random.choice(self.dictionary[random_date])
-        return (random_word)
+        return (random_date, random_word)
     
     def get_last_n_dates_words(self, n:int) -> list[Word]:
         all_dates = self.get_all_dates()
