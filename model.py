@@ -50,6 +50,24 @@ class Dictionary:
                 result[date].append(word_obj)
 
         self.dictionary = result 
+    
+    def _find_word(self, date, word) -> Tuple[Word, int] | int | None:
+        """
+            Returns a tuple with the word object and its index in the list of words of the date.
+            returns 0 if the date does not exist.
+            returns None if the word does not exist.
+        """
+        if date in self.dictionary:
+            for i, word_d in enumerate(self.dictionary[date]):
+                if word_d.word.lower() == word:
+                    return (word_d, i)
+            else:
+                print(f"Word '{word}' not found on date '{date}'.")
+                return None
+        else:
+            print(f"Date '{date}' not found.")
+            return 0
+
 
     def print_all_words(self):
         for date in self.dictionary:
@@ -76,27 +94,42 @@ class Dictionary:
         new_word = Word(word_name, meanings, notes, pav)
         self._add_word(date, new_word)
 
-    def remove_word(self, date:str, word:str):
+    def remove_word(self, date: str, word: str):
         word = word.lower()
-        
-        if date in self.dictionary:
-            for i, word_d in enumerate(self.dictionary[date]):
-                if word_d.word.lower() == word:
-                    del self.dictionary[date][i]
-                    print(f"Word '{word}' removed on date '{date}'.")
-                    break
-            else:
-                print(f"Word '{word}' not found on date '{date}'.")
-        
-        else:
-            print(f"Date '{date}' not found.")
-        
-    def update_word(self, date:str, word:Word):
-        if date in self.dictionary:
-            for i in range(len(self.dictionary[date])):
-                if self.dictionary[date][i].word == word.word:
-                    self.dictionary[date][i] = word
-                    break
+
+        word_d = self._find_word(date, word)
+        if word_d:
+            del self.dictionary[date][word_d[1]]
+            print(f"Word '{word}' removed on date '{date}'.")
+
+
+    def add_word_meaning(self, date: str, word: str, new_meaning: str):
+        word = word.lower()
+        word_d = self._find_word(date, word)
+        if word_d:
+            word_d[0].meanings.append(new_meaning)
+            print(f"Meaning '{new_meaning}' added to word '{word}' on date '{date}'.")
+
+    def reset_word_meanings(self, date:str, word:str, meanings:list):
+        word = word.lower()
+        word_d = self._find_word(date, word)
+        if word_d:
+            word_d[0].meanings = meanings
+            print(f"Meanings reset for word '{word}' on date '{date}'.")
+
+    def update_word_note(self, date:str, word:str, notes:str):
+        word = word.lower()
+        word_d = self._find_word(date, word)
+        if word_d:
+            word_d[0].notes = notes
+            print(f"Notes updated for word '{word}' on date '{date}'.")
+
+    def update_word_pav(self, date:str, word:str, pav:str):
+        word = word.lower()
+        word_d = self._find_word(date, word)
+        if word_d:
+            word_d[0].pav = pav
+            print(f"PAV updated for word '{word}' on date '{date}'.")
 
     def get_date_words(self, date:str) -> list[Word]:
         return self.dictionary.get(date, [])
