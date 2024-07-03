@@ -78,14 +78,18 @@ class Dictionary:
 
     def remove_word(self, date:str, word:str):
         word = word.lower()
+        
         if date in self.dictionary:
             for i, word_d in enumerate(self.dictionary[date]):
                 if word_d.word.lower() == word:
                     del self.dictionary[date][i]
+                    print(f"Word '{word}' removed on date '{date}'.")
                     break
+            else:
+                print(f"Word '{word}' not found on date '{date}'.")
         
         else:
-            print("Date not found")
+            print(f"Date '{date}' not found.")
         
     def update_word(self, date:str, word:Word):
         if date in self.dictionary:
