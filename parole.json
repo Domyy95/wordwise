@@ -273,9 +273,7 @@
     "2024-04-25": [
         {
             "word": "degnazione",
-           
-
- "meanings": [
+            "meanings": [
                 "atteggiamento o comportamento di condiscendenza o di benevolenza nei confronti di inferiori"
             ]
         }
@@ -669,8 +667,7 @@
             "word": "granciporro",
             "meanings": [
                 "errore madornale."
-            ],
-            "note": "il granciporro è un enorme granchio marino del mediterraneo detto anche re dei granchi. da qui il detto 'hai preso un granchio."
+            ]
         }
     ],
     "2024-06-13": [
@@ -727,6 +724,30 @@
                 "dominato da una violenta esasperazione",
                 "fenomeno accessionale violento"
             ]
+        }
+    ],
+    "2024-07-06": [
+        {
+            "word": "misogino",
+            "meanings": [
+                "Di persona che prova una repulsione patologica verso la donna, anche per ciò che concerne i rapporti sessuali, o che ha un'avversione generica, mista a disprezzo, per tutte le donne."
+            ],
+            "notes": "Ho definito Umberto così l'altra sera"
+        },
+        {
+            "word": "misantropo",
+            "meanings": [
+                "Persona caratterizzata da una perenne incapacità di inserirsi nei rapporti sociali con la conveniente partecipazione e cordialità."
+            ],
+            "notes": "Di persona che prova un sentimento di odio, di antipatia, di avversione per il genere umano, o che, in senso più ampio, ha carattere poco socievole, chiuso ai contatti umani. Io ultimamente."
+        },
+        {
+            "word": "bucolico",
+            "meanings": [
+                "Pastorale sul piano letterario",
+                "Di tono o di ambiente campestre o boschereccio; idillico"
+            ],
+            "notes": "L'ha usata Dom per decrivere la sauna in Piemonte"
         }
     ]
 }
