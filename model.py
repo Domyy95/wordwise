@@ -93,7 +93,7 @@ class Dictionary:
         self.dictionary[date].append(word)
 
     def add_word(self, date: str, word_name: str, meanings: list, notes=None, pav=None):
-        new_word = Word(word_name, meanings, notes, pav)
+        new_word = Word(word_name.lower(), meanings, notes, pav)
         self._add_word(date, new_word)
 
     def remove_word(self, date: str, word: str):
